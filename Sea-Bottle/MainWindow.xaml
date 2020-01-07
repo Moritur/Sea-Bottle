@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sea_Bottle"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="800" Width="450">
+    <Grid x: Name ="background">
+    <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFA9A9" Offset="0"/>
+                <GradientStop Color="#FFB5DADA" Offset="1"/>
+                <GradientStop Color="#FF215593" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <UniformGrid x:Name="CheckerBoard" HorizontalAlignment="Center" Height="380" Margin="10,50,10,80" VerticalAlignment="Top" Width="400" Rows="10" Columns="10" Grid.Row="10" Grid.Column="10" Background="#FFEED9D9" RenderTransformOrigin="0.5,0.5">
+            <UniformGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+                </UniformGrid.RenderTransform>
+                </UniformGrid>
+
+        <Label x:Name="calculatorbg" Content="Label" HorizontalAlignment="Left" Height="40" Margin="365,10,0,0" VerticalAlignment="Top" Width="56" Background="#FFCFE213" Opacity="0.8" BorderThickness="0" Cursor="None">
+            <Label.Effect>
+                <BlurEffect Radius="8"/>
+            </Label.Effect>
+        </Label>
+        <Label x:Name="calculator" Content="Label" HorizontalAlignment="Left" Height="35" Margin="369,11,0,0" VerticalAlignment="Top" Width="46" Background="#FFCFE213" Opacity="0.8" BorderThickness="5" Cursor="None"/>
+<!--komórki label są do poprawy - nie skaluj się na razie tak jakbym chciała-->
     </Grid>
 </Window>

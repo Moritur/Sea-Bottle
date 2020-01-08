@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sea_Bottle"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="450">
-    <Grid x: Name ="background">
+    <Grid x:Name="background">
     <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FFFFA9A9" Offset="0"/>

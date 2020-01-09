@@ -23,11 +23,24 @@ namespace Sea_Bottle
         #region configs
         const int cellNumber = 100;
         const int shotLimit = 40;
+        const int shotAnimationTime = 1;
         #endregion
+
+        long animationDuration = new TimeSpan(0, 0, shotAnimationTime).Ticks;
 
         (Image image, CellState state)[] cells = new (Image uiElement, CellState state)[cellNumber];
 
-        int clicksLeft = shotLimit;
+        int _clicksLeft;
+        int ClicksLeft
+        {
+            get => _clicksLeft;
+
+            set
+            {
+                _clicksLeft = value;
+                calculator.Content = _clicksLeft.ToString();
+            }
+        }
 
         enum CellState
         {
@@ -63,8 +76,15 @@ namespace Sea_Bottle
         {
             if (cells[cellId].state == CellState.miss) return;
 
-            clicksLeft--;
+            ClicksLeft--;
+            long startTime = DateTime.Now.Ticks;
+
             await Task.Run(() => UpdateShipGridForClick(cellId));
+            long timePassed = DateTime.Now.Ticks - startTime;
+            if (timePassed < animationDuration)
+            {
+                await Task.Delay(new TimeSpan(animationDuration - timePassed));
+            }
             UpdateCellUI(cellId);
         }
 

@@ -17,11 +17,11 @@ namespace SeaBottle
 {
     static class ImageResourcesManager
     {
-        public static BitmapImage emptyCell = new BitmapImage();
-        public static BitmapImage miss = new BitmapImage();
-        public static BitmapImage hit = new BitmapImage();
-        public static BitmapImage destroyedShip  = new BitmapImage();
-        public static BitmapImage shot = new BitmapImage();
+        public static BitmapImage emptyCell { get; private set; } = new BitmapImage();
+        public static BitmapImage miss { get; private set; } = new BitmapImage();
+        public static BitmapImage hit { get; private set; } = new BitmapImage();
+        public static BitmapImage destroyedShip { get; private set; } = new BitmapImage();
+        public static BitmapImage shot { get; private set; } = new BitmapImage();
 
         const string emptyCellUri;
         const string missUri;

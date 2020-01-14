@@ -21,40 +21,27 @@ namespace Sea_Bottle
     public partial class MainWindow : Window
     {
         #region configs
-        const int cellNumber = 100;
+        const int gridSide = 10;
+        const int cellNumber = gridSide * gridSide;
         const int shotLimit = 40;
         const int shotAnimationTime = 1;
         #endregion
 
+        GameController gameController;
+
+        Image[] cellImages = new Image[cellNumber];
+
+
+
         long animationDuration = new TimeSpan(0, 0, shotAnimationTime).Ticks;
-
-        (Image image, CellState state)[] cells = new (Image uiElement, CellState state)[cellNumber];
-
-        int _clicksLeft;
-        int ClicksLeft
-        {
-            get => _clicksLeft;
-
-            set
-            {
-                _clicksLeft = value;
-                calculator.Content = _clicksLeft.ToString();
-            }
-        }
-
-        enum CellState
-        {
-            empty,
-            ship,
-            miss,
-            hit,
-            destroyed
-        }
 
         public MainWindow()
         {
             InitializeComponent();
+            gameController = new GameController(shotLimit, cellNumber);
+            ImageResourcesManager.Initialize();
             InitializeCells();
+            UpdateClicksUI();
         }
 
 
@@ -64,22 +51,23 @@ namespace Sea_Bottle
             {
                 int j = i;
 
-                Image image = new Image();
+                Image image = new Image() { Source = ImageResourcesManager.emptyCell };
                 image.MouseDown += async (object sender, MouseButtonEventArgs e) => await HandleCellClickAsync(j);
                 CheckerBoard.Children.Add(image);
 
-                cells[i] = (image, CellState.empty);
+                cellImages[i] = image;
             }
         }
 
         async Task HandleCellClickAsync(int cellId)
         {
-            if (cells[cellId].state == CellState.miss) return;
+            if (!gameController.CanCellBeShot(cellId)) return;
 
-            ClicksLeft--;
             long startTime = DateTime.Now.Ticks;
 
-            await Task.Run(() => UpdateShipGridForClick(cellId));
+            cellImages[cellId].Source = ImageResourcesManager.shot;
+            await Task.Run(() => gameController.UpdateShipGridForClick(cellId));
+            UpdateClicksUI();
             long timePassed = DateTime.Now.Ticks - startTime;
             if (timePassed < animationDuration)
             {
@@ -88,15 +76,32 @@ namespace Sea_Bottle
             UpdateCellUI(cellId);
         }
 
-        void UpdateShipGridForClick(int cellId)
-        {
-            cells[cellId].state = (cells[cellId].state == CellState.ship) ? CellState.hit : CellState.miss;
-        }
+
 
         void UpdateCellUI(int celllId)
         {
-
+            switch (gameController.CellStates[celllId])
+            {
+                case GameController.CellState.empty:
+                case GameController.CellState.ship:
+                    cellImages[celllId].Source = ImageResourcesManager.emptyCell;
+                    break;
+                case GameController.CellState.miss:
+                    cellImages[celllId].Source = ImageResourcesManager.miss;
+                    break;
+                case GameController.CellState.hit:
+                    cellImages[celllId].Source = ImageResourcesManager.hit;
+                    break;
+                case GameController.CellState.destroyed:
+                    cellImages[celllId].Source = ImageResourcesManager.destroyedShip;
+                    break;
+                default:
+                    throw new ArgumentException("Cell in unexpected state", nameof(celllId));
+            }
         }
+
+        public void UpdateClicksUI() => calculator.Content = gameController.clicksLeft;
+
 
     }
 }

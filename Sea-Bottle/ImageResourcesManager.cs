@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SeaBottle
+namespace Sea_Bottle
 {
     static class ImageResourcesManager
     {
@@ -23,11 +23,11 @@ namespace SeaBottle
         public static BitmapImage destroyedShip { get; private set; } = new BitmapImage();
         public static BitmapImage shot { get; private set; } = new BitmapImage();
 
-        const string emptyCellUri;
-        const string missUri;
-        const string hitUri;
-        const string destroyedShipUri;
-        const string shotUri;
+        const string emptyCellUri = "Resources/kotwica.jpg";
+        const string missUri = "Resources/miss.jpg";
+        const string hitUri = "Resources/hit.jpg";
+        const string destroyedShipUri = "Resources/destroyedShip.jpg";
+        const string shotUri = "Resources/shot.jpg";
 
         public static void Initialize()
         {

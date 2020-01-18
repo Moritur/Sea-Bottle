@@ -15,6 +15,12 @@ using System.Windows.Shapes;
 
 namespace Sea_Bottle
 {
+    /// <summary>
+    /// Allows easy access to images loaded from resources
+    /// </summary>
+    /// <remarks>
+    /// Before using any property of this class <see cref="Initialize"/> must be called first
+    /// </remarks>
     static class ImageResourcesManager
     {
         public static BitmapImage emptyCell { get; private set; } = new BitmapImage();
@@ -29,6 +35,9 @@ namespace Sea_Bottle
         const string destroyedShipUri = "Resources/destroyedShip.jpg";
         const string shotUri = "Resources/shot.jpg";
 
+        /// <summary>
+        /// Loads all images from resurces and initializes <see cref="BitmapImage"/> for each one of them
+        /// </summary>
         public static void Initialize()
         {
             InitBitmap(emptyCell, emptyCellUri);
@@ -38,8 +47,15 @@ namespace Sea_Bottle
             InitBitmap(shot, shotUri);
         }
 
+        /// <summary>
+        /// Initializes <see cref="BitmapImage"/> using provided uri of image
+        /// </summary>
+        /// <param name="bitmap">Bitmap to initailize</param>
+        /// <param name="uri">Uri leading to image. Must be relative</param>
+        /// <exception cref="UriFormatException">When <paramref name="uri"/> is not valid uri for <see cref="UriKind.Relative"/></exception>
         static void InitBitmap(BitmapImage bitmap, string uri)
         {
+            if (bitmap == null) throw new ArgumentNullException(nameof(bitmap), $"{nameof(BitmapImage)} to initialize can't be null");
             bitmap.BeginInit();
             bitmap.UriSource = new Uri(uri, UriKind.Relative);
             bitmap.EndInit();

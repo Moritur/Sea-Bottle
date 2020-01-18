@@ -9,16 +9,16 @@
     <Viewbox>
 
         <Grid x:Name="background" Margin="0,0,0,0" Width="1920" Height="1080">
-            <Grid.Background >
+            <!--<Grid.Background >
                 <ImageBrush ImageSource="bg.png" />
-            </Grid.Background>
+            </Grid.Background>-->
 
 
             <DockPanel Margin="0,0,0,0" Width="1920" Height="1080">
                 <DockPanel Width="562" Height="446" Margin="202,337,0,297" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                    <DockPanel.Background>
+                    <!--<DockPanel.Background>
                         <ImageBrush ImageSource="board.png"/>
-                    </DockPanel.Background>
+                    </DockPanel.Background>-->
 
                     <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="50,10,-36,0" Height="43">
                         <Button Content="00" Margin="1" Height="33" Width="39"/>
@@ -78,19 +78,19 @@
                 </DockPanel>
             </DockPanel>
             <Button x:Name="newGame" Content="" HorizontalAlignment="Left" Margin="1035,921,0,0" VerticalAlignment="Top" Width="226" Height="124">
-                <Button.Background>
+                <!--<Button.Background>
                     <ImageBrush ImageSource="newg.png"/>
-                </Button.Background>
+                </Button.Background>-->
             </Button>
             <Button x:Name="music" Content="" HorizontalAlignment="Left" Margin="1827,46,0,0" VerticalAlignment="Top" Width="62" Height="67">
-                <Button.Background>
+                <!--<Button.Background>
                     <ImageBrush ImageSource="music.png"/>
-                </Button.Background>
+                </Button.Background>-->
             </Button>
             <Button x:Name="exit" Content="" HorizontalAlignment="Left" Margin="1457,921,0,0" VerticalAlignment="Top" Width="226" Height="124">
-                <Button.Background>
+                <!--<Button.Background>
                     <ImageBrush ImageSource="ex.png"/>
-                </Button.Background>
+                </Button.Background>-->
             </Button>
 
         </Grid>

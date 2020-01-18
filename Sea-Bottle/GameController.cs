@@ -43,7 +43,7 @@ namespace Sea_Bottle
         /// 
         /// </summary>
         /// <param name="shotLimit"></param>
-        /// <param name="gridSide"></param>
+        /// <param name="numberOfCells"></param>
         /// <param name="shipNumbers">How many ships of each size should be spawned. First element of array is number of ships with size 1, second 2, etc</param>
         public GameController(int shotLimit, int gridSide, params int[] shipNumbers)
         {
@@ -59,7 +59,7 @@ namespace Sea_Bottle
             gameState = GameState.inProgress;
         }
 
-        public bool CanCellBeShot(int cellId) => cellStates[cellId] != CellState.miss && cellStates[cellId] != CellState.hit && cellStates[cellId] != CellState.destroyed;
+        public bool CanCellBeShot(int cellId) => gameState == GameState.inProgress && cellStates[cellId] != CellState.miss && cellStates[cellId] != CellState.hit && cellStates[cellId] != CellState.destroyed;
 
         public bool UpdateShipGridForClick(int cellId)
         {
@@ -120,6 +120,7 @@ namespace Sea_Bottle
 
             return destroyed;
         }
+
         void Loose()
         {
 
@@ -129,6 +130,8 @@ namespace Sea_Bottle
         {
 
         }
+
+        #region spawning ships
 
         void GenerateShips(int[] shipNumbers)
         {
@@ -176,12 +179,42 @@ namespace Sea_Bottle
 
         bool TrySpawnShipVertical(int cellId, int size, int column)
         {
-            throw new NotImplementedException();
+            bool spawned = true;
+            int[] shipCells = new int[size];
+
+            for (int i = 0; i < size; i++)
+            {
+                int currentCellId = cellId + (i * gridSide);
+                shipCells[i] = currentCellId;
+                if ((currentCellId % gridSide) != column || !CanSpawnShipInCell(currentCellId))
+                {
+                    spawned = false;
+                    break;
+                }
+            }
+
+            if (spawned) SpawnShip(shipCells);
+            return spawned;
         }
 
         bool TrySpawnShipHorizontal(int cellId, int size, int row)
         {
-            throw new NotImplementedException();
+            bool spawned = true;
+            int[] shipCells = new int[size];
+
+            for (int i = 0; i < size; i++)
+            {
+                int currentCellId = cellId + i;
+                shipCells[i] = currentCellId;
+                if ((currentCellId / gridSide) != row || !CanSpawnShipInCell(currentCellId))
+                {
+                    spawned = false;
+                    break;
+                }
+            }
+
+            if (spawned) SpawnShip(shipCells);
+            return spawned;
         }
 
         bool CanSpawnShipInCell(int cellId) => cellStates[cellId] == CellState.empty || cellStates[cellId] == CellState.miss;
@@ -195,5 +228,7 @@ namespace Sea_Bottle
                 cellStates[cells[i]] = CellState.ship;
             }
         }
+
+        #endregion
     }
 }

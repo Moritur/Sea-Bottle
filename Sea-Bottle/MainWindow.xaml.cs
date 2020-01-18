@@ -23,8 +23,9 @@ namespace Sea_Bottle
         #region configs
         const int gridSide = 10;
         const int cellNumber = gridSide * gridSide;
-        const int shotLimit = 40;
+        const int shotLimit = 90;
         const int shotAnimationTime = 1;
+        readonly int[] shipNumbers = new int[] { 5, 3, 2, 1, 1, 1 };
         #endregion
 
         GameController gameController;
@@ -38,7 +39,7 @@ namespace Sea_Bottle
         public MainWindow()
         {
             InitializeComponent();
-            gameController = new GameController(shotLimit, cellNumber);
+            gameController = new GameController(shotLimit, gridSide, shipNumbers);
             ImageResourcesManager.Initialize();
             InitializeCells();
             UpdateClicksUI();
@@ -66,17 +67,60 @@ namespace Sea_Bottle
             long startTime = DateTime.Now.Ticks;
 
             cellImages[cellId].Source = ImageResourcesManager.shot;
-            await Task.Run(() => gameController.UpdateShipGridForClick(cellId));
+            bool destroyrdShip = await Task.Run(() => gameController.UpdateShipGridForClick(cellId));
             UpdateClicksUI();
             long timePassed = DateTime.Now.Ticks - startTime;
             if (timePassed < animationDuration)
             {
                 await Task.Delay(new TimeSpan(animationDuration - timePassed));
             }
-            UpdateCellUI(cellId);
+
+
+            if (destroyrdShip)
+            {
+                UpdateAllCellsUI();
+            }
+            else
+            {
+                UpdateCellUI(cellId);
+            }
+
+            if (gameController.gameState == GameController.GameState.won)
+            {
+                await Task.Delay(new TimeSpan(animationDuration));
+                await PlayVictoryAnimationAsync();
+            }
+            else if (gameController.gameState == GameController.GameState.lost)
+            {
+                await Task.Delay(new TimeSpan(animationDuration));
+                await PlayDefeatyAnimationAsync();
+            }
         }
 
+        async Task PlayVictoryAnimationAsync()
+        {
+            foreach (Image image in cellImages)
+            {
+                image.Source = ImageResourcesManager.hit;
+                await Task.Delay(50);
+            }
+        }
+        async Task PlayDefeatyAnimationAsync()
+        {
+            foreach (Image image in cellImages)
+            {
+                image.Source = ImageResourcesManager.destroyedShip;
+                await Task.Delay(50);
+            }
+        }
 
+        void UpdateAllCellsUI()
+        {
+            for (int cellId = 0; cellId < cellNumber; cellId++)
+            {
+                UpdateCellUI(cellId);
+            }
+        }
 
         void UpdateCellUI(int celllId)
         {
@@ -101,7 +145,6 @@ namespace Sea_Bottle
         }
 
         public void UpdateClicksUI() => calculator.Content = gameController.clicksLeft;
-
 
     }
 }

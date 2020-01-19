@@ -24,30 +24,26 @@ namespace Sea_Bottle
         /// <summary>
         /// Length of grid's side in cells
         /// </summary>
-        int gridSide;
+        readonly int gridSide;
         /// <summary>
         /// Total number of cells in the grid
         /// </summary>
         int gridSize => gridSide * gridSide;
+
         /// <summary>
         /// Stores <see cref="CellState"/> of each cell in the game
         /// </summary>
-        CellState[] cellStates;
+        readonly CellState[] cellStates;
+
         /// <summary>
         /// All ships present in the game
         /// </summary>
-        List<Ship> ships;
+        readonly List<Ship> ships;
+
         /// <summary>
         /// Used for pseudo randomness when spawning ships
         /// </summary>
-        Random random = new Random();
-        /// <summary>
-        /// Number of shots player can fire before loosing the game
-        /// </summary>
-        /// <remarks>
-        /// If last remaining shot is a winning shot player wins
-        /// </remarks>
-        readonly int shotLimit;
+        readonly Random random = new Random();
 
         /// <summary>
         /// Current <see cref="GameState"/> of the game
@@ -81,7 +77,7 @@ namespace Sea_Bottle
         /// Constructor for <see cref="GameController"/>
         /// </summary>
         /// <param name="shotLimit">Number of shots player can fire before loosing</param>
-        /// <param name="numberOfCells"></param>
+        /// <param name="gridSide">Side of the grid in cells</param>
         /// <param name="shipNumbers">How many ships of each size should be spawned. First element of array is number of ships with size 1, second 2, etc</param>
         public GameController(int shotLimit, int gridSide, params int[] shipNumbers)
         {
@@ -90,7 +86,6 @@ namespace Sea_Bottle
             if (gridSide < shipNumbers.Length) throw new ArgumentException("Ships can't be larger than the grid", nameof(shipNumbers));
             if (gridSide * gridSide < shipNumbers.Sum()) throw new ArgumentException("Too many ships for the given grid size", nameof(shipNumbers));
 
-            this.shotLimit = shotLimit;
             this.clicksLeft = shotLimit;
             this.gridSide = gridSide;
             this.cellStates = new CellState[gridSide * gridSide];
@@ -256,8 +251,6 @@ namespace Sea_Bottle
         /// </returns>
         bool TrySpawnShip(int cellId, int size)
         {
-            int row = cellId / gridSide;
-            int column = cellId % gridSize;
             bool spawned;
 
             bool startVertical = random.Next(0, 2) != 0;

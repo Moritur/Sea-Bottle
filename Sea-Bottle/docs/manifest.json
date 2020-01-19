@@ -1,0 +1,144 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/Kacper/Projects/Sea Bottle/Sea-Bottle/Sea-Bottle",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sea_Bottle.App.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sea_Bottle.App.html",
+          "hash": "8kLgJbCeZB/geXisB5Yf2g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sea_Bottle.GameController.CellState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sea_Bottle.GameController.CellState.html",
+          "hash": "uTaVii2hMqqXExxabiZLqQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sea_Bottle.GameController.GameState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sea_Bottle.GameController.GameState.html",
+          "hash": "OTIZSgdW54VUj/IwIAfT0g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sea_Bottle.GameController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sea_Bottle.GameController.html",
+          "hash": "piRMDkHKaK6M1yNJ0X7soQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sea_Bottle.MainWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sea_Bottle.MainWindow.html",
+          "hash": "GFBSQ3YFFnUe4c+04Bs0jQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sea_Bottle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sea_Bottle.html",
+          "hash": "eWJfsMk5H2xRdISPDX91dg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "kjiRoFkGLvbIAr8YdhC80Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "fAd3nslvG8hsD5MrE5M5eQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 6,
+          "skipped_file_count": 6
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

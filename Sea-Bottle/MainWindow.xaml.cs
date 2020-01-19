@@ -88,6 +88,17 @@ namespace Sea_Bottle
             }
         }
 
+        private void InitializeButtons()
+        {
+            exit.Click += Exit_Click;
+
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Handler for <see cref="UIElement.MouseDown"/> event of each cell in the game
         /// </summary>

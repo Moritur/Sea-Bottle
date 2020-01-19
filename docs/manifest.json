@@ -17,47 +17,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Sea_Bottle.GameController.CellState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Sea_Bottle.GameController.CellState.html",
-          "hash": "uTaVii2hMqqXExxabiZLqQ=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Sea_Bottle.GameController.GameState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Sea_Bottle.GameController.GameState.html",
-          "hash": "OTIZSgdW54VUj/IwIAfT0g=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Sea_Bottle.GameController.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Sea_Bottle.GameController.html",
-          "hash": "piRMDkHKaK6M1yNJ0X7soQ=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/api/Sea_Bottle.MainWindow.yml",
       "output": {
         ".html": {
           "relative_path": "api/Sea_Bottle.MainWindow.html",
-          "hash": "GFBSQ3YFFnUe4c+04Bs0jQ=="
+          "hash": "zU3FT+lV1m7Wm7+IffP1Fw=="
         }
       },
       "is_incremental": true,
@@ -69,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sea_Bottle.html",
-          "hash": "eWJfsMk5H2xRdISPDX91dg=="
+          "hash": "iSo66TCDYSLi5V34nlt/Cg=="
         }
       },
       "is_incremental": true,
@@ -81,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "kjiRoFkGLvbIAr8YdhC80Q=="
+          "hash": "QviDT6kT2GSzA+iDr+x83g=="
         }
       },
       "is_incremental": false,
@@ -119,8 +83,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 6,
-          "skipped_file_count": 6
+          "total_file_count": 3,
+          "skipped_file_count": 3
         }
       }
     },

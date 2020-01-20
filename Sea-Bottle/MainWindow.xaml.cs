@@ -52,20 +52,22 @@ namespace Sea_Bottle
         /// <summary>
         /// <see cref="Image"/> controls representing cells
         /// </summary>
-         readonly Image[] cellImages = new Image[cellNumber];
+        readonly Image[] cellImages = new Image[cellNumber];
 
 
         /// <summary>
         /// Instance of <see cref="TimeSpan"/> with <see cref="TimeSpan.TotalSeconds"/> equal to <see cref="shotAnimationTime"/>
         /// </summary>
         readonly long animationDuration = new TimeSpan(0, 0, shotAnimationTime).Ticks;
-
+        
         public MainWindow()
         {
             InitializeComponent();
             gameController = new GameController(shotLimit, gridSide, shipNumbers);
             ImageResourcesManager.Initialize();
+            GameAudioManager.Initialize();
             InitializeCells();
+            InitializeButtons();
             UpdateClicksUI();
         }
 
@@ -91,13 +93,23 @@ namespace Sea_Bottle
         private void InitializeButtons()
         {
             exit.Click += Exit_Click;
+            music.Click += Music_Click;
+            //newGame.Click += NewGame_Click;
 
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        //private void NewGame_Click(object sender, RoutedEventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        private void Music_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            GameAudioManager.SwitchMute();
+            ((ImageBrush)music.Background).ImageSource = GameAudioManager.isAudioMuted ? ImageResourcesManager.soundOffIcon : ImageResourcesManager.soundIcon;
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
         /// <summary>
         /// Handler for <see cref="UIElement.MouseDown"/> event of each cell in the game
@@ -111,6 +123,7 @@ namespace Sea_Bottle
 
             long startTime = DateTime.Now.Ticks;
             cellImages[cellId].Source = ImageResourcesManager.shot;
+            GameAudioManager.PlayShot();
 
             bool destroyedShip = await Task.Run(() => gameController.UpdateShipGridForShot(cellId));
             UpdateClicksUI();
@@ -118,7 +131,11 @@ namespace Sea_Bottle
             long timePassed = DateTime.Now.Ticks - startTime;
             if (timePassed < animationDuration) await Task.Delay(new TimeSpan(animationDuration - timePassed));
 
-            if (destroyedShip) UpdateAllCellsUI();
+            if (destroyedShip)
+            {
+                GameAudioManager.PlayBubbles();
+                UpdateAllCellsUI();
+            }
             else UpdateCellUI(cellId);
 
             if (gameController.gameState == GameController.GameState.won)

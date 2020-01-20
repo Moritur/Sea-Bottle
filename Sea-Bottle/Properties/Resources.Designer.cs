@@ -61,6 +61,16 @@ namespace Sea_Bottle.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] bubbles {
+            get {
+                object obj = ResourceManager.GetObject("bubbles", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap compass {
@@ -161,6 +171,16 @@ namespace Sea_Bottle.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] music_bg {
+            get {
+                object obj = ResourceManager.GetObject("music_bg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap new_game {
@@ -177,6 +197,16 @@ namespace Sea_Bottle.Properties {
             get {
                 object obj = ResourceManager.GetObject("shot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] shot_sound {
+            get {
+                object obj = ResourceManager.GetObject("shot_sound", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

@@ -6,6 +6,28 @@
         xmlns:local="clr-namespace:Sea_Bottle"
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                    Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Blue" />
+                                <Setter Property="Cursor" Value="Hand" />
+                                <!-- don't change image on hover -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Viewbox>
 
         <Grid x:Name="background" Margin="0,0,0,0" Width="1920" Height="1080">
@@ -77,17 +99,17 @@
                     </StackPanel>
                 </DockPanel>
             </DockPanel>
-            <Button x:Name="newGame" Content="" HorizontalAlignment="Left" Margin="1035,921,0,0" VerticalAlignment="Top" Width="226" Height="124">
+            <!--<Button x:Name="newGame" Content="" HorizontalAlignment="Left" Margin="1035,921,0,0" VerticalAlignment="Top" Width="226" Height="124">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/new_game.png"/>
                 </Button.Background>
-            </Button>
-            <Button x:Name="music" Content="" HorizontalAlignment="Left" Margin="1827,46,0,0" VerticalAlignment="Top" Width="62" Height="67">
+            </Button>-->
+            <Button x:Name="music" BorderThickness="0" Content="" HorizontalAlignment="Left" Margin="1827,46,0,0" VerticalAlignment="Top" Width="62" Height="67">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/sound.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="exit" Content="" HorizontalAlignment="Left" Margin="1457,921,0,0" VerticalAlignment="Top" Width="226" Height="124">
+            <Button x:Name="exit" BorderThickness="0" Content="" HorizontalAlignment="Left" Margin="1457,921,0,0" VerticalAlignment="Top" Width="226" Height="124">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/exit.png"/>
                 </Button.Background>

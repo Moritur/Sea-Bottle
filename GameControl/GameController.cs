@@ -145,12 +145,13 @@ namespace GameControl
         /// </returns>
         bool CheckForShipDestruction(int cellId)
         {
-            bool destroyed = true;
+            bool destroyed = false;
 
             foreach (Ship ship in ships)
             {
                 if (ship.cells.Contains(cellId))
                 {
+                    destroyed = true;
                     if (ship.isDestroyed) break;
 
                     foreach (int currentCellId in ship.cells)

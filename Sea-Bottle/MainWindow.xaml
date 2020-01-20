@@ -94,16 +94,15 @@
                     <!--
                         </Grid>
 -->
-                    <StackPanel>
-                        <Label x:Name="calculator" Content="Label" HorizontalAlignment="Left" Height="35" Margin="369,11,0,0" VerticalAlignment="Top" Width="46" Background="#FFCFE213" Opacity="0.8" BorderThickness="5" Cursor="None"/>
-                    </StackPanel>
                 </DockPanel>
             </DockPanel>
-            <!--<Button x:Name="newGame" Content="" HorizontalAlignment="Left" Margin="1035,921,0,0" VerticalAlignment="Top" Width="226" Height="124">
+            <Label x:Name="calculator" Content="Label" HorizontalAlignment="Left" Margin="1165,530,0,443" Width="359" Background="#FFCFE213" Opacity="0.8" BorderThickness="5" Cursor="None" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <Button x:Name="newGame" BorderThickness="0" Content="" HorizontalAlignment="Left" Margin="1035,921,0,0" VerticalAlignment="Top" Width="226" Height="124">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/new_game.png"/>
                 </Button.Background>
-            </Button>-->
+            </Button>
             <Button x:Name="music" BorderThickness="0" Content="" HorizontalAlignment="Left" Margin="1827,46,0,0" VerticalAlignment="Top" Width="62" Height="67">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/sound.png"/>

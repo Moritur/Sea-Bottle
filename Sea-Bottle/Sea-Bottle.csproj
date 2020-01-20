@@ -104,7 +104,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".gitignore" />
     <Content Include="Resources\bubbles.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

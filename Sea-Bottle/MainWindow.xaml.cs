@@ -94,14 +94,15 @@ namespace Sea_Bottle
         {
             exit.Click += Exit_Click;
             music.Click += Music_Click;
-            //newGame.Click += NewGame_Click;
-
+            newGame.Click += NewGame_Click;
         }
 
-        //private void NewGame_Click(object sender, RoutedEventArgs e)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+            gameController = new GameController(shotLimit, gridSide, shipNumbers);
+            UpdateAllCellsUI();
+            UpdateClicksUI();
+        }
 
         private void Music_Click(object sender, RoutedEventArgs e)
         {

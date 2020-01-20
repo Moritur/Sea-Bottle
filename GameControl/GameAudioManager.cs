@@ -58,6 +58,7 @@ namespace GameControl
             #endregion
 
             player = new MediaPlayer();
+            player.IsMuted = isAudioMuted;
             player.Open(uriToPlay);
 
             currentMediaPlayers.Add(player);

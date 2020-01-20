@@ -81,7 +81,7 @@
                                 <ColumnDefinition Width="457*"/>
                             </Grid.ColumnDefinitions>
                            -->
-                    <UniformGrid x:Name="CheckerBoard" HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Margin="30,-348,0,37" Width="400" Rows="10" Columns="10" Background="#FFEED9D9" RenderTransformOrigin="0.5,0.5">
+                    <UniformGrid x:Name="CheckerBoard" HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Margin="30,-348,60,37" Width="400" Rows="10" Columns="10" Background="#FFEED9D9" RenderTransformOrigin="0.5,0.5">
                         <UniformGrid.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -96,15 +96,19 @@
 -->
                 </DockPanel>
             </DockPanel>
+            <Grid>
+                <Border Margin="0,0,187,131" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Border.Background>
+                        <ImageBrush ImageSource="Resources/compass.png" Stretch="None" />
+                    </Border.Background>
+                    <Label x:Name="calculator" Content="Label" FontFamily="Agency FB" FontSize="80" Foreground="#FF95D4FF" Margin="250,300,200,250" Width="300" Opacity="0.8" BorderThickness="5" Cursor="None" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="100" VerticalAlignment="Center">
+                        <Label.Effect>
+                            <DropShadowEffect BlurRadius="20" Color="#FF91DEFB" ShadowDepth="0"/>
+                        </Label.Effect>
+                    </Label>
 
-            <Label  HorizontalAlignment="Right" Margin="0,371,237,315" Height="394" Width="515" Opacity="0.8" BorderThickness="5" Cursor="None" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                <Label.Background>
-                    <ImageBrush ImageSource="Resources/compass.png"/>
-                </Label.Background>
-                <Label.Content>
-                    <TextBlock x:Name="calculator" Text=" 80" FontSize="70" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                </Label.Content>
-            </Label>
+                </Border>
+            </Grid>
             <Image x:Name="gameEndPopup" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="450"/>
 
             <Button x:Name="newGame" BorderThickness="0" Content="" HorizontalAlignment="Left" Margin="1035,921,0,0" VerticalAlignment="Top" Width="226" Height="124">
@@ -122,7 +126,11 @@
                     <ImageBrush ImageSource="Resources/exit.png"/>
                 </Button.Background>
             </Button>
-            <Image Source="Resources/logo.png" HorizontalAlignment="Left" Height="331" VerticalAlignment="Top" Width="624" Margin="1198,10,0,0"/>
+                <Canvas HorizontalAlignment="Left" Height="227" Margin="1195,112,0,0" VerticalAlignment="Top" Width="396" RenderTransformOrigin="1.263,0.456">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="Resources/logo.png"/>
+                </Canvas.Background>
+            </Canvas>
 
         </Grid>
     </Viewbox>

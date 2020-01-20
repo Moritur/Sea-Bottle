@@ -57,12 +57,11 @@ namespace GameControl
             else
             {
                 player = new MediaPlayer();
+                currentMediaPlayers.Add(player);
             }
 
             player.IsMuted = isAudioMuted;
             player.Open(uriToPlay);
-
-            currentMediaPlayers.Add(player);
 
             if (loop) player.MediaEnded += (object sender, EventArgs e) => ResetPlayer(player);
             else player.MediaEnded += (object sender, EventArgs e) => finishedMediaPlayers.Add(player);

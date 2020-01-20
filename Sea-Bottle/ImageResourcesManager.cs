@@ -30,7 +30,8 @@ namespace Sea_Bottle
         public static BitmapImage shot { get; private set; } = new BitmapImage();
         public static BitmapImage soundIcon { get; private set; } = new BitmapImage();
         public static BitmapImage soundOffIcon { get; private set; } = new BitmapImage();
-
+        public static BitmapImage victory { get; private set; } = new BitmapImage();
+        public static BitmapImage defeat { get; private set; } = new BitmapImage();
 
         const string emptyCellUri = "Resources/kotwica.jpg";
         const string missUri = "Resources/miss.jpg";
@@ -39,6 +40,8 @@ namespace Sea_Bottle
         const string shotUri = "Resources/shot.jpg";
         const string soundIconUri = "Resources/sound.png";
         const string soundOffIconUri = "Resources/sound_x.png";
+        const string victoryUri = "Resources/victory.png";
+        const string defeatUri = "Resources/defeat.png";
 
         /// <summary>
         /// Loads all images from resurces and initializes <see cref="BitmapImage"/> for each one of them
@@ -52,6 +55,8 @@ namespace Sea_Bottle
             InitBitmap(shot, shotUri);
             InitBitmap(soundIcon, soundIconUri);
             InitBitmap(soundOffIcon, soundOffIconUri);
+            InitBitmap(victory, victoryUri);
+            InitBitmap(defeat, defeatUri);
         }
 
         /// <summary>

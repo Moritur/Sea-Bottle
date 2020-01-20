@@ -50,14 +50,15 @@ namespace GameControl
         {
             MediaPlayer player;
 
-            #region remove old players
-            while (finishedMediaPlayers.TryTake(out player))
+            if(finishedMediaPlayers.TryTake(out player))
             {
-                currentMediaPlayers.Remove(player);
+                player.Position = TimeSpan.Zero;
             }
-            #endregion
+            else
+            {
+                player = new MediaPlayer();
+            }
 
-            player = new MediaPlayer();
             player.IsMuted = isAudioMuted;
             player.Open(uriToPlay);
 

@@ -54,11 +54,13 @@ namespace Sea_Bottle
         /// </summary>
         readonly Image[] cellImages = new Image[cellNumber];
 
-
         /// <summary>
-        /// Instance of <see cref="TimeSpan"/> with <see cref="TimeSpan.TotalSeconds"/> equal to <see cref="shotAnimationTime"/>
+        /// Number of ticks of <see cref="TimeSpan"/> with <see cref="TimeSpan.TotalSeconds"/> equal to <see cref="shotAnimationTime"/>
         /// </summary>
         readonly long animationDuration = new TimeSpan(0, 0, shotAnimationTime).Ticks;
+
+        volatile bool isEndAnimationPlaying = false;
+        volatile bool isNewGameStarting = false;
         
         public MainWindow()
         {
@@ -97,11 +99,20 @@ namespace Sea_Bottle
             newGame.Click += NewGame_Click;
         }
 
-        private void NewGame_Click(object sender, RoutedEventArgs e)
+        private async void NewGame_Click(object sender, RoutedEventArgs e)
         {
+            if (isNewGameStarting) return;
+
+            isNewGameStarting = true;
+            while (isEndAnimationPlaying) await Task.Delay(100);
+
             gameController = new GameController(shotLimit, gridSide, shipNumbers);
             UpdateAllCellsUI();
             UpdateClicksUI();
+            gameEndPopup.Visibility = Visibility.Hidden;
+            await Task.Delay(shotAnimationTime * 1000);
+            UpdateAllCellsUI();
+            isNewGameStarting = false;
         }
 
         private void Music_Click(object sender, RoutedEventArgs e)
@@ -156,11 +167,15 @@ namespace Sea_Bottle
         /// </summary>
         async Task PlayVictoryAnimationAsync()
         {
+            isEndAnimationPlaying = true;
+            gameEndPopup.Source = ImageResourcesManager.victory;
+            gameEndPopup.Visibility = Visibility.Visible;
             foreach (Image image in cellImages)
             {
                 image.Source = ImageResourcesManager.hit;
                 await Task.Delay(50);
             }
+            isEndAnimationPlaying = false;
         }
 
         /// <summary>
@@ -168,11 +183,15 @@ namespace Sea_Bottle
         /// </summary>
         async Task PlayDefeatAnimationAsync()
         {
+            isEndAnimationPlaying = true;
+            gameEndPopup.Source = ImageResourcesManager.defeat;
+            gameEndPopup.Visibility = Visibility.Visible;
             foreach (Image image in cellImages)
             {
                 image.Source = ImageResourcesManager.destroyedShip;
                 await Task.Delay(50);
             }
+            isEndAnimationPlaying = false;
         }
 
         /// <summary>
@@ -221,7 +240,7 @@ namespace Sea_Bottle
         /// <summary>
         /// Updates number of clicks player has left in UI
         /// </summary>
-        public void UpdateClicksUI() => calculator.Content = gameController.clicksLeft;
+        public void UpdateClicksUI() => calculator.Text = " " + gameController.clicksLeft.ToString();
 
     }
 }

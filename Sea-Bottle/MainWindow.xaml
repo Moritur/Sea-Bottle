@@ -67,7 +67,7 @@
                         <Button Content="4" Margin="1,1,0,1" Height="33" Width="39"/>
                         <Button Content="5" Margin="1,1,0,1" Height="33" Width="39"/>
                         <Button Content="6" Margin="56,1,55,1" Height="33" Width="39"/>
-                        <Button Content="7" Margin="62,1,0,1" Height="33" Width="39" HorizontalAlignment="Left"/>
+                        <Button Content="7" Margin="30,1,30,1" Height="33" Width="39"/>
                         <Button Content="8" Margin="56,1,55,1" Height="33" Width="39"/>
                         <Button Content="9" Margin="57,1,56,1" Height="33" Width="39"/>
                         <Button Content="10" Margin="56,1,55,1" Height="33" Width="39"/>
@@ -81,7 +81,7 @@
                                 <ColumnDefinition Width="457*"/>
                             </Grid.ColumnDefinitions>
                            -->
-                    <UniformGrid x:Name="CheckerBoard" Height="340" Margin="95,-348,0,37" Width="400" Rows="10" Columns="10" Background="#FFEED9D9" RenderTransformOrigin="0.5,0.5">
+                    <UniformGrid x:Name="CheckerBoard" HorizontalAlignment="Center" VerticalAlignment="Center" Height="340" Margin="30,-348,0,37" Width="400" Rows="10" Columns="10" Background="#FFEED9D9" RenderTransformOrigin="0.5,0.5">
                         <UniformGrid.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -96,7 +96,15 @@
 -->
                 </DockPanel>
             </DockPanel>
-            <Label x:Name="calculator" Content="Label" HorizontalAlignment="Left" Margin="1165,530,0,443" Width="359" Background="#FFCFE213" Opacity="0.8" BorderThickness="5" Cursor="None" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label  HorizontalAlignment="Right" Margin="0,371,237,315" Height="394" Width="515" Opacity="0.8" BorderThickness="5" Cursor="None" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <Label.Background>
+                    <ImageBrush ImageSource="Resources/compass.png"/>
+                </Label.Background>
+                <Label.Content>
+                    <TextBlock x:Name="calculator" Text=" 80" FontSize="70" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Label.Content>
+            </Label>
+            <Image x:Name="gameEndPopup" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="450"/>
 
             <Button x:Name="newGame" BorderThickness="0" Content="" HorizontalAlignment="Left" Margin="1035,921,0,0" VerticalAlignment="Top" Width="226" Height="124">
                 <Button.Background>

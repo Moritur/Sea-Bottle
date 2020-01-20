@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,23 +26,23 @@ namespace Sea_Bottle
         /// <summary>
         /// Length of grid's side in cells
         /// </summary>
-        const int gridSide = 10;
-        const int cellNumber = gridSide * gridSide;
+        readonly int gridSide;
+        readonly int cellNumber;
         /// <summary>
         /// Number of shots player can fire before loosing the game
         /// </summary>
         /// <remarks>
         /// If last remaining shot is a winning shot player wins
         /// </remarks>
-        const int shotLimit = 80;
+        readonly int shotLimit;
         /// <summary>
         /// How long to wait (in seconds) before revealing result of player's shot
         /// </summary>
-        const int shotAnimationTime = 1;
+        readonly int shotAnimationTime;
         /// <summary>
         /// >How many ships of each size should be spawned. First element of array is number of ships with size 1, second 2, etc
         /// </summary>
-        readonly int[] shipNumbers = new int[] { 5, 3, 2, 1, 1, 1 };
+        readonly int[] shipNumbers;
         #endregion
 
         /// <summary>
@@ -52,19 +53,40 @@ namespace Sea_Bottle
         /// <summary>
         /// <see cref="Image"/> controls representing cells
         /// </summary>
-        readonly Image[] cellImages = new Image[cellNumber];
+        readonly Image[] cellImages;
 
         /// <summary>
         /// Number of ticks of <see cref="TimeSpan"/> with <see cref="TimeSpan.TotalSeconds"/> equal to <see cref="shotAnimationTime"/>
         /// </summary>
-        readonly long animationDuration = new TimeSpan(0, 0, shotAnimationTime).Ticks;
+        readonly long animationDuration;
 
         volatile bool isEndAnimationPlaying = false;
         volatile bool isNewGameStarting = false;
-        
+
         public MainWindow()
         {
             InitializeComponent();
+
+            #region load settings
+            try
+            {
+                gridSide = int.Parse(ConfigurationManager.AppSettings["gridSide"]);
+                cellNumber = gridSide * gridSide;
+                shotLimit = int.Parse(ConfigurationManager.AppSettings["shotLimit"]);
+                shotAnimationTime = int.Parse(ConfigurationManager.AppSettings["shotAnimationTime"]);
+                animationDuration = new TimeSpan(0, 0, shotAnimationTime).Ticks;
+
+                shipNumbers = ConfigurationManager.AppSettings["shipNumbers"].Split(',').Select(s => int.Parse(s)).ToArray();
+
+                cellImages = new Image[cellNumber];
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid configuration file", "Error");
+                Application.Current.Shutdown();
+            }
+            #endregion
+
             gameController = new GameController(shotLimit, gridSide, shipNumbers);
             ImageResourcesManager.Initialize();
             GameAudioManager.Initialize();
@@ -240,7 +262,7 @@ namespace Sea_Bottle
         /// <summary>
         /// Updates number of clicks player has left in UI
         /// </summary>
-        public void UpdateClicksUI() => calculator.Text = " " + gameController.clicksLeft.ToString();
+        public void UpdateClicksUI() => calculator.Content = gameController.clicksLeft.ToString() + " ";
 
     }
 }

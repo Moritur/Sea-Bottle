@@ -1,0 +1,394 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class GameAudioManager
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class GameAudioManager
+   ">
+    <meta name="generator" content="docfx 2.48.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="GameControl.GameAudioManager">
+  
+  
+  <h1 id="GameControl_GameAudioManager" data-uid="GameControl.GameAudioManager" class="text-break">Class GameAudioManager
+  </h1>
+  <div class="markdown level0 summary"><p>Manages all audio in the game</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">GameAudioManager</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="GameControl.html">GameControl</a></h6>
+  <h6><strong>Assembly</strong>: GameControl.dll</h6>
+  <h5 id="GameControl_GameAudioManager_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class GameAudioManager</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Moritur/Sea-Bottle/new/master/apiSpec/new?filename=GameControl_GameAudioManager_currentMediaPlayers.md&amp;value=---%0Auid%3A%20GameControl.GameAudioManager.currentMediaPlayers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Moritur/Sea-Bottle/blob/master/GameControl/GameAudioManager.cs/#L18">View Source</a>
+  </span>
+  <h4 id="GameControl_GameAudioManager_currentMediaPlayers" data-uid="GameControl.GameAudioManager.currentMediaPlayers">currentMediaPlayers</h4>
+  <div class="markdown level1 summary"><p>Contains every <span class="xref">System.Windows.Media.MediaPlayer</span> currently playing</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly List&lt;MediaPlayer&gt; currentMediaPlayers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Windows.Media.MediaPlayer</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Moritur/Sea-Bottle/new/master/apiSpec/new?filename=GameControl_GameAudioManager_finishedMediaPlayers.md&amp;value=---%0Auid%3A%20GameControl.GameAudioManager.finishedMediaPlayers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Moritur/Sea-Bottle/blob/master/GameControl/GameAudioManager.cs/#L23">View Source</a>
+  </span>
+  <h4 id="GameControl_GameAudioManager_finishedMediaPlayers" data-uid="GameControl.GameAudioManager.finishedMediaPlayers">finishedMediaPlayers</h4>
+  <div class="markdown level1 summary"><p>Contains each <span class="xref">System.Windows.Media.MediaPlayer</span> which has finished and should be removed from <a class="xref" href="GameControl.GameAudioManager.html#GameControl_GameAudioManager_currentMediaPlayers">currentMediaPlayers</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly ConcurrentBag&lt;MediaPlayer&gt; finishedMediaPlayers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Concurrent.ConcurrentBag</span>&lt;<span class="xref">System.Windows.Media.MediaPlayer</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Moritur/Sea-Bottle/new/master/apiSpec/new?filename=GameControl_GameAudioManager_isAudioMuted.md&amp;value=---%0Auid%3A%20GameControl.GameAudioManager.isAudioMuted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Moritur/Sea-Bottle/blob/master/GameControl/GameAudioManager.cs/#L33">View Source</a>
+  </span>
+  <a id="GameControl_GameAudioManager_isAudioMuted_" data-uid="GameControl.GameAudioManager.isAudioMuted*"></a>
+  <h4 id="GameControl_GameAudioManager_isAudioMuted" data-uid="GameControl.GameAudioManager.isAudioMuted">isAudioMuted</h4>
+  <div class="markdown level1 summary"><p>Is in-game audio muted?</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isAudioMuted { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Moritur/Sea-Bottle/new/master/apiSpec/new?filename=GameControl_GameAudioManager_Initialize.md&amp;value=---%0Auid%3A%20GameControl.GameAudioManager.Initialize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Moritur/Sea-Bottle/blob/master/GameControl/GameAudioManager.cs/#L38">View Source</a>
+  </span>
+  <a id="GameControl_GameAudioManager_Initialize_" data-uid="GameControl.GameAudioManager.Initialize*"></a>
+  <h4 id="GameControl_GameAudioManager_Initialize" data-uid="GameControl.GameAudioManager.Initialize">Initialize()</h4>
+  <div class="markdown level1 summary"><p>Prepares audio for the game</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Initialize()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Moritur/Sea-Bottle/new/master/apiSpec/new?filename=GameControl_GameAudioManager_PlayBubbles.md&amp;value=---%0Auid%3A%20GameControl.GameAudioManager.PlayBubbles%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Moritur/Sea-Bottle/blob/master/GameControl/GameAudioManager.cs/#L96">View Source</a>
+  </span>
+  <a id="GameControl_GameAudioManager_PlayBubbles_" data-uid="GameControl.GameAudioManager.PlayBubbles*"></a>
+  <h4 id="GameControl_GameAudioManager_PlayBubbles" data-uid="GameControl.GameAudioManager.PlayBubbles">PlayBubbles()</h4>
+  <div class="markdown level1 summary"><p>Plays bubbles sound</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void PlayBubbles()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Moritur/Sea-Bottle/new/master/apiSpec/new?filename=GameControl_GameAudioManager_PlayShot.md&amp;value=---%0Auid%3A%20GameControl.GameAudioManager.PlayShot%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Moritur/Sea-Bottle/blob/master/GameControl/GameAudioManager.cs/#L88">View Source</a>
+  </span>
+  <a id="GameControl_GameAudioManager_PlayShot_" data-uid="GameControl.GameAudioManager.PlayShot*"></a>
+  <h4 id="GameControl_GameAudioManager_PlayShot" data-uid="GameControl.GameAudioManager.PlayShot">PlayShot()</h4>
+  <div class="markdown level1 summary"><p>Plays shot sound</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void PlayShot()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Moritur/Sea-Bottle/new/master/apiSpec/new?filename=GameControl_GameAudioManager_ResetPlayer_System_Windows_Media_MediaPlayer_.md&amp;value=---%0Auid%3A%20GameControl.GameAudioManager.ResetPlayer(System.Windows.Media.MediaPlayer)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Moritur/Sea-Bottle/blob/master/GameControl/GameAudioManager.cs/#L109">View Source</a>
+  </span>
+  <a id="GameControl_GameAudioManager_ResetPlayer_" data-uid="GameControl.GameAudioManager.ResetPlayer*"></a>
+  <h4 id="GameControl_GameAudioManager_ResetPlayer_System_Windows_Media_MediaPlayer_" data-uid="GameControl.GameAudioManager.ResetPlayer(System.Windows.Media.MediaPlayer)">ResetPlayer(MediaPlayer)</h4>
+  <div class="markdown level1 summary"><p>Resets <span class="xref">System.Windows.Media.MediaPlayer</span> and plays it</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ResetPlayer(MediaPlayer player)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Windows.Media.MediaPlayer</span></td>
+        <td><span class="parametername">player</span></td>
+        <td><p><span class="xref">System.Windows.Media.MediaPlayer</span> to reset</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="GameControl_GameAudioManager_ResetPlayer_System_Windows_Media_MediaPlayer__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets <span class="xref">System.Windows.Media.MediaPlayer.Position</span> to <span class="xref">System.TimeSpan.Zero</span>
+and then calls <span class="xref">System.Windows.Media.MediaPlayer.Play</span></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Moritur/Sea-Bottle/new/master/apiSpec/new?filename=GameControl_GameAudioManager_StartPlayer_System_Uri_System_Boolean_.md&amp;value=---%0Auid%3A%20GameControl.GameAudioManager.StartPlayer(System.Uri%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Moritur/Sea-Bottle/blob/master/GameControl/GameAudioManager.cs/#L49">View Source</a>
+  </span>
+  <a id="GameControl_GameAudioManager_StartPlayer_" data-uid="GameControl.GameAudioManager.StartPlayer*"></a>
+  <h4 id="GameControl_GameAudioManager_StartPlayer_System_Uri_System_Boolean_" data-uid="GameControl.GameAudioManager.StartPlayer(System.Uri,System.Boolean)">StartPlayer(Uri, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Plays media from <span class="xref">System.Uri</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void StartPlayer(Uri uriToPlay, bool loop = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Uri</span></td>
+        <td><span class="parametername">uriToPlay</span></td>
+        <td><p>Path to file to be played</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">loop</span></td>
+        <td><p>Set to true to loop media</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Moritur/Sea-Bottle/new/master/apiSpec/new?filename=GameControl_GameAudioManager_SwitchMute.md&amp;value=---%0Auid%3A%20GameControl.GameAudioManager.SwitchMute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Moritur/Sea-Bottle/blob/master/GameControl/GameAudioManager.cs/#L75">View Source</a>
+  </span>
+  <a id="GameControl_GameAudioManager_SwitchMute_" data-uid="GameControl.GameAudioManager.SwitchMute*"></a>
+  <h4 id="GameControl_GameAudioManager_SwitchMute" data-uid="GameControl.GameAudioManager.SwitchMute">SwitchMute()</h4>
+  <div class="markdown level1 summary"><p>Mutes or unmutes audio in the game</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SwitchMute()</code></pre>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Moritur/Sea-Bottle/new/master/apiSpec/new?filename=GameControl_GameAudioManager.md&amp;value=---%0Auid%3A%20GameControl.GameAudioManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Moritur/Sea-Bottle/blob/master/GameControl/GameAudioManager.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

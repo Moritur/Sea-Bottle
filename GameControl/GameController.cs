@@ -331,7 +331,6 @@ namespace GameControl
         /// <returns>
         /// <see langword="true"/> if a ship can be spawned in the cell with id <paramref name="cellId"/> <see langword="false"/>
         /// </returns>
-        //bool CanSpawnShipInCell(int cellId) => cellStates[cellId] == CellState.empty || cellStates[cellId] == CellState.miss;
         bool CanSpawnShipInCell(int cellId)
         {
             return
